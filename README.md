@@ -1,2 +1,25 @@
-# small-projects
-A collection of relatively small projects that don't deserve their own repository.
+A collection of relatively small projects that don't deserve their own repository. This is my collection of tools that I've built or found over the years to accomplish various tasks.
+
+As a project outgrows its small-projects qualifications, it will be migrated into its own repository. The link in this readme will move to the migrated section and the source will be removed.
+
+If a small project is unused for an extended period of time to the point of becoming outdated, then it will be migrated to the retired section with its source zipped up.
+
+
+## HashRename
+
+_April 2015_
+
+This C# tool will recursively hash and rename files.
+
+    Usage: hashrename [OPTIONS] [FILES]+
+    Hashes and renames files using the specified hash algorithm, recursively.
+    Directories are left untouched, and this only prints files that were renamed.
+
+    Options:
+      -t, --type=VALUE           The type of hash algorithm to use for filenames.
+                                   Curently supported is md5, sha1, sha256, and
+                                   sha512. md5 is default.
+      -d, --delete               If a duplicate hash is found, delete the file
+
+    FILES:
+            The list of files or directories to recursively hash and rename.
