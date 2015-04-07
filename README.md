@@ -14,13 +14,13 @@ then it will be migrated to the retired section with its source zipped up.
 
 Sorted alphabetically.
 
-| Title | Description | Language | Date |
-| :--- | :--- | :--- | :---: |
-| [FileSystemEnumerable](#FileSystemEnumerable) | Enumerator for a file system that doesn't fail as easily. | C# | 2015-03 |
-| [GravatarGrab](#GravatarGrab) | Retrieve a Gravatar image by email. | Python 3 | 2015-03 |
-| [HashRename](#HashRename) | Recursively renames files to their hash. | C# | 2015-04 |
-| [ReplaceAll](#ReplaceAll) | A function to perform a replace all with `std::string`s. | C++ | 2013-12 |
-| [Notes](#Notes) | Things that need to be said. | N/A | - |
+| Title                                         | Description                                   | Language | Date |
+| :---                                          | :---                                          | :--- | :---: |
+| [FileSystemEnumerable](#FileSystemEnumerable) | Friendlier enumerator for a file system.      | C# | 2015-03 |
+| [GravatarGrab](#GravatarGrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
+| [HashRename](#HashRename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
+| [ReplaceAll](#ReplaceAll)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
+| [Notes](#Notes)                               | Things that need to be said.                  | N/A | - |
 
 
 
