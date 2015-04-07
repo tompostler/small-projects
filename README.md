@@ -16,10 +16,24 @@ Sorted alphabetically.
 
 | Title | Description | Language | Date |
 | :--- | :--- | :--- | :---: |
+| [FileSystemEnumerable](#FileSystemEnumerable) | Enumerator for a file system that doesn't fail as easily. | C# | 2015-03 |
 | [GravatarGrab](#GravatarGrab) | Retrieve a Gravatar image by email. | Python 3 | 2015-03 |
 | [HashRename](#HashRename) | Recursively renames files to their hash. | C# | 2015-04 |
 | [ReplaceAll](#ReplaceAll) | A function to perform a replace all with `std::string`s. | C++ | 2013-12 |
 | [Notes](#Notes) | Things that need to be said. | N/A | - |
+
+
+
+## FileSystemEnumerable
+
+A C# class to enumerate every file/dir recursively with a search string that doesn't invalidate the enumerable whilst traversing.
+
+    var root = new DirectoryInfo(@"c:\wherever");
+    var searchPattern = @"*.txt";
+    var searchOption = SearchOption.AllDirectories;
+    var enumerable = new FileSystemEnumerable(root, searchPattern, searchOption);
+    
+A la http://stackoverflow.com/a/13130054/4062072 on 2015-03-03.
 
 
     
