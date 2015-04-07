@@ -17,9 +17,22 @@ If a small project is just a C# file and you want to compile on Linux:
     mcs csharpfile.cs
 
 
+    
+## GravatarGrab
+
+_March 2015, Python 3_
+
+A Python script that when given an email address will attempt to retrieve the corresponding icon
+from Gravatar and store it in a file.
+
+    Usage: python3 GravatarGrab.py email "file name"
+
+
+
+
 ## HashRename
 
-_April 2015_
+_April 2015, C#_
 
 This C# tool will recursively hash and rename files.
 
