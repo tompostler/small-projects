@@ -1,8 +1,12 @@
-A collection of relatively small projects that don't deserve their own repository. This is my collection of tools that I've built or found over the years to accomplish various tasks.
+A collection of relatively small projects that don't deserve their own repository. This is my
+collection of tools that I've built or found over the years to accomplish various tasks.
 
-As a project outgrows its small-projects qualifications, it will be migrated into its own repository. The link in this readme will move to the migrated section and the source will be removed.
+As a project outgrows its small-projects qualifications, it will be migrated into its own
+repository. The link in this readme will move to the migrated section and the source will be
+removed.
 
-If a small project is unused for an extended period of time to the point of becoming outdated, then it will be migrated to the retired section with its source zipped up.
+If a small project is unused for an extended period of time to the point of becoming outdated,
+then it will be migrated to the retired section with its source zipped up.
 
 #### C# on Linux
 
