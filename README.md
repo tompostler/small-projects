@@ -14,10 +14,12 @@ then it will be migrated to the retired section with its source zipped up.
 
 Sorted alphabetically.
 
-- [GravatarGrab](#GravatarGrab), _2015-03 - Python 3_
-- [HashRename](#HashRename), _2015-04, C#_
-- [ReplaceAll](#ReplaceAll), _2013-12, C++_
-- [Notes](#Notes)
+| Title                         | Language  | Date      |
+| :---                          | :---      | :---:     |
+| [GravatarGrab](#GravatarGrab) | Python 3  | 2015-03   |
+| [HashRename](#HashRename)     | C#        | 2015-04   |
+| [ReplaceAll](#ReplaceAll)     | C++       | 2013-12   |
+| [Notes](#Notes)               | N/A       | -         |
 
 
     
