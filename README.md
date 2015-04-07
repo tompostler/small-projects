@@ -8,23 +8,20 @@ removed.
 If a small project is unused for an extended period of time to the point of becoming outdated,
 then it will be migrated to the retired section with its source zipped up.
 
-#### C# on Linux
 
-If a small project is in C# using Visual Studio and you want to compile on Linux:
 
-    apt-get install mono-complete
-    xbuild csharpproject.csproj
-    
-If a small project is just a C# file and you want to compile on Linux:
+## Table of Contents
 
-    apt-get install mono-complete
-    mcs csharpfile.cs
+Sorted alphabetically.
+
+- [GravatarGrab](#GravatarGrab), _2015-03 - Python 3_
+- [HashRename](#HashRename), _2015-04, C#_
+- [ReplaceAll](#ReplaceAll), _2013-12, C++_
+- [Notes](#Notes)
 
 
     
 ## GravatarGrab
-
-_March 2015, Python 3_
 
 A Python script that when given an email address will attempt to retrieve the corresponding icon
 from Gravatar and store it in a file.
@@ -34,8 +31,6 @@ from Gravatar and store it in a file.
 
 
 ## HashRename
-
-_April 2015, C#_
 
 This C# tool will recursively hash and rename files.
 
@@ -56,7 +51,23 @@ This C# tool will recursively hash and rename files.
             
 ## ReplaceAll
 
-_December 2013, C++_
-
 A relatively efficient C++ function to perform a replace all on strings in C++ since there is no
 built-in way to perform replace-all on `std::string` objects.
+
+
+
+## Notes
+
+Things that don't really go anywhere else, but should go somewhere.
+
+#### C# on Linux
+
+If a small project is in C# using Visual Studio and you want to compile on Linux:
+
+    apt-get install mono-complete
+    xbuild csharpproject.csproj
+    
+If a small project is just a C# file and you want to compile on Linux:
+
+    apt-get install mono-complete
+    mcs csharpfile.cs
