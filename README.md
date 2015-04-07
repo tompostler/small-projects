@@ -33,7 +33,6 @@ from Gravatar and store it in a file.
 
 
 
-
 ## HashRename
 
 _April 2015, C#_
@@ -52,3 +51,12 @@ This C# tool will recursively hash and rename files.
 
     FILES:
             The list of files or directories to recursively hash and rename.
+
+            
+            
+## ReplaceAll
+
+_December 2013, C++_
+
+A relatively efficient C++ function to perform a replace all on strings in C++ since there is no
+built-in way to perform replace-all on `std::string` objects.
