@@ -4,6 +4,18 @@ As a project outgrows its small-projects qualifications, it will be migrated int
 
 If a small project is unused for an extended period of time to the point of becoming outdated, then it will be migrated to the retired section with its source zipped up.
 
+#### C# on Linux
+
+If a small project is in C# using Visual Studio and you want to compile on Linux:
+
+    apt-get install mono-complete
+    xbuild csharpproject.csproj
+    
+If a small project is just a C# file and you want to compile on Linux:
+
+    apt-get install mono-complete
+    mcs csharpfile.cs
+
 
 ## HashRename
 
