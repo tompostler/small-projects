@@ -26,7 +26,8 @@ Sorted alphabetically.
 
 ## FileSystemEnumerable
 
-A C# class to enumerate every file/dir recursively with a search string that doesn't invalidate the enumerable whilst traversing.
+A C# class to enumerate every file/dir recursively with a search string that doesn't invalidate the
+enumerable whilst traversing.
 
     var root = new DirectoryInfo(@"c:\wherever");
     var searchPattern = @"*.txt";
@@ -87,3 +88,8 @@ If a small project is just a C# file and you want to compile on Linux:
 
     apt-get install mono-complete
     mcs csharpfile.cs
+
+If a small project has a DLL associated with it and you wish to package it into one executable,
+while also removing all extraneous unused code from the DLLs:
+
+    mkbundle -o <outfile> <exefile> <dllfile1> <dllfile2> ...
