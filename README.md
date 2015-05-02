@@ -16,11 +16,11 @@ Sorted alphabetically.
 
 | Title                                         | Description                                   | Language | Date |
 | :---                                          | :---                                          | :--- | :---: |
-| [FileSystemEnumerable](#FileSystemEnumerable) | Friendlier enumerator for a file system.      | C# | 2015-03 |
-| [GravatarGrab](#GravatarGrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
-| [HashRename](#HashRename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
-| [ReplaceAll](#ReplaceAll)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
-| [Notes](#Notes)                               | Things that need to be said.                  | N/A | - |
+| [FileSystemEnumerable](#filesystemenumerable) | Friendlier enumerator for a file system.      | C# | 2015-03 |
+| [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
+| [HashRename](#hashrename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
+| [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
+| [Notes](#notes)                               | Things that need to be said.                  | N/A | - |
 
 
 
