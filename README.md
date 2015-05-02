@@ -20,6 +20,7 @@ Sorted alphabetically.
 | [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
 | [HashRename](#hashrename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
 | [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
+| [SendEmail](#sendemail)                       | Sends GMails with an auth file.               | C# | 2015-05 |
 | [Notes](#notes)                               | Things that need to be said.                  | N/A | - |
 
 
@@ -73,6 +74,33 @@ built-in way to perform replace-all on `std::string` objects.
 
 
 
+## SendEmail
+
+A C# program that can be used to send emails with GMail via the use of a `.sendemail` auth file
+located in the user's home directory (platform independent, of course).
+
+    Usage: sendemail [OPTIONS]+
+    Send an email using a JSON auth file stored in the home directory at .sendemail.
+
+    This program only supports sending emails through GMail.
+
+    Options:
+      -h, --help                 Print this help text
+          --generate-example     Generates an example auth file (.sendemail) in the
+                                   home directory. This will overwrite an existing
+                                   auth file
+      -s, --subject=VALUE        Email subject line. If this is omitted, it will be
+                                   the name of the file specified for the body
+                                   option.
+      -b, --body=VALUE           The plaintext file containing the body of the email
+
+      -t, --to=VALUE             To email address
+          --cc=VALUE             CC email address
+          --bcc=VALUE            BCC email address
+      -a, --attachment=VALUE     Adds an attachment to the email
+
+
+
 ## Notes
 
 Things that don't really go anywhere else, but should go somewhere.
@@ -93,3 +121,15 @@ If a small project has a DLL associated with it and you wish to package it into 
 while also removing all extraneous unused code from the DLLs:
 
     mkbundle -o <outfile> <exefile> <dllfile1> <dllfile2> ...
+
+#### Mono Trust Issues
+
+A la http://stackoverflow.com/a/9803922/4062072, a default installation of Mono does not trust
+anyone! This makes it very hard to use any sort of certificate authorities (such as for the
+sending email scripts).
+
+To install all certificates in the Mozilla store (most user cases, but technically the least safe),
+in addition to the specific gmail certificate:
+
+    mozroots --import --ask-removed
+    certmgr -ssl smtps://smtp.gmail.com:465
