@@ -23,7 +23,7 @@ namespace hashrename
                 "Options:",
                 {
                     "t|type=",
-                    "The type of hash algorithm to use for filenames. Curently supported is md5, sha1, sha256, and sha512. md5 is default.",
+                    "The type of hash algorithm to use for filenames. Curently supported is crc32, md5, sha1, sha256, and sha512. md5 is default.",
                     v => alg = v
                 },
                 {
@@ -60,6 +60,8 @@ namespace hashrename
             Hasher hasher = null;
             if (String.IsNullOrEmpty(alg) || alg == "md5")
                 hasher = new Hasher(MD5.Create());
+            else if (alg == "crc32")
+                hasher = new Hasher(Crc32.Create());
             else if (alg == "sha1")
                 hasher = new Hasher(SHA1.Create());
             else if (alg == "sha256")

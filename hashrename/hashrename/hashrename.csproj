@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crc32.cs" />
     <Compile Include="FileSystemEnumerable.cs" />
     <Compile Include="Hasher.cs" />
     <Compile Include="Mono.Options\Options.cs" />
