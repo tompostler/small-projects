@@ -19,6 +19,7 @@ Sorted alphabetically.
 | [FileSystemEnumerable](#filesystemenumerable) | Friendlier enumerator for a file system.      | C# | 2015-03 |
 | [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
 | [HashRename](#hashrename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
+| [Progress](#progress)                         | Time-based progress percentage.               | C# | 2015-08 |
 | [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
 | [SendEmail](#sendemail)                       | Sends GMails with an auth file.               | C# | 2015-05 |
 | [Notes](#notes)                               | Things that need to be said.                  | N/A | - |
@@ -69,8 +70,18 @@ This C# tool will recursively hash and rename files.
     FILES:
             The list of files or directories to recursively hash and rename.
 
-            
-            
+
+
+## Progress
+
+Made to test the progress reading of ConEmu.
+
+Specifically, this tool takes a number of seconds to progress through and then prints the current
+percentage towards that goal on one line in the console. Shows every percent regardless of how
+little time is set to elapse.
+
+
+
 ## ReplaceAll
 
 A relatively efficient C++ function to perform a replace all on strings in C++ since there is no
