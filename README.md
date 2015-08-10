@@ -46,6 +46,10 @@ from Gravatar and store it in a file.
 
     Usage: python3 GravatarGrab.py email "file name"
 
+Useful bit of git to get the email and name from every commit in sorted order:
+
+    git log --format='$aN|%aE' | sort -u
+
 
 
 ## HashRename
