@@ -19,6 +19,7 @@ Sorted alphabetically.
 | [FileSystemEnumerable](#filesystemenumerable) | Friendlier enumerator for a file system.      | C# | 2015-03 |
 | [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
 | [HashRename](#hashrename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
+| [PerformanceTesting](#performancetesting)     | Perf test a function 10k times.               | C# | 2015-08 |
 | [Progress](#progress)                         | Time-based progress percentage.               | C# | 2015-08 |
 | [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
 | [SendEmail](#sendemail)                       | Sends GMails with an auth file.               | C# | 2015-05 |
@@ -69,6 +70,12 @@ This C# tool will recursively hash and rename files.
 
     FILES:
             The list of files or directories to recursively hash and rename.
+
+
+
+## PerformanceTesting
+
+Edit `DoTheThing()` then compile and run to perform 10k perf tests on that function.
 
 
 
