@@ -14,16 +14,17 @@ then it will be migrated to the retired section with its source zipped up.
 
 Sorted alphabetically.
 
-| Title                                         | Description                                   | Language | Date |
-| :---                                          | :---                                          | :--- | :---: |
-| [FileSystemEnumerable](#filesystemenumerable) | Friendlier enumerator for a file system.      | C# | 2015-03 |
-| [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                 | Python 3 | 2015-03 |
-| [HashRename](#hashrename)                     | Recursively renames files to their hash.      | C# | 2015-04 |
-| [PerformanceTesting](#performancetesting)     | Perf test a function 10k times.               | C# | 2015-08 |
-| [Progress](#progress)                         | Time-based progress percentage.               | C# | 2015-08 |
-| [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.       | C++ | 2013-12 |
-| [SendEmail](#sendemail)                       | Sends GMails with an auth file.               | C# | 2015-05 |
-| [Notes](#notes)                               | Things that need to be said.                  | N/A | - |
+| Title                                         | Description                                       | Language | Date |
+| :---                                          | :---                                              | :--- | :---: |
+| [FileSystemEnumerable](#filesystemenumerable) | Friendlier enumerator for a file system.          | C# | 2015-03 |
+| [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                     | Python 3 | 2015-03 |
+| [HashRename](#hashrename)                     | Recursively renames files to their hash.          | C# | 2015-04 |
+| [PerformanceTesting](#performancetesting)     | Perf test a function 10k times.                   | C# | 2015-08 |
+| [Progress](#progress)                         | Time-based progress percentage.                   | C# | 2015-08 |
+| [RandomPassword](#randompassword)             | Cryptographically secure alphanumeric passwords.  | C# | 2016-02 |
+| [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.           | C++ | 2013-12 |
+| [SendEmail](#sendemail)                       | Sends GMails with an auth file.                   | C# | 2015-05 |
+| [Notes](#notes)                               | Things that need to be said.                      | N/A | - |
 
 
 
@@ -86,6 +87,13 @@ Made to test the progress reading of ConEmu.
 Specifically, this tool takes a number of seconds to progress through and then prints the current
 percentage towards that goal on one line in the console. Shows every percent regardless of how
 little time is set to elapse.
+
+
+
+## RandomPassword
+
+A cryptographically secure alphanumeric password generator. Takes one optional parameter for the 
+length of the password, but defaults to 100 chars.
 
 
 
