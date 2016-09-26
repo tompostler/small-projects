@@ -16,6 +16,7 @@ Sorted alphabetically.
 
 | Title                                         | Description                                       | Language | Date |
 | :---                                          | :---                                              | :--- | :---: |
+| [Communicator](#communicator)					| Simple, lightweight WPF communication helper.     | C# | 2016-09 |
 | [FileSystemEnumerable](#filesystemenumerable) | Friendlier enumerator for a file system.          | C# | 2015-03 |
 | [GravatarGrab](#gravatargrab)                 | Retrieve a Gravatar by email.                     | Python 3 | 2015-03 |
 | [HashRename](#hashrename)                     | Recursively renames files to their hash.          | C# | 2015-04 |
@@ -25,6 +26,13 @@ Sorted alphabetically.
 | [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.           | C++ | 2013-12 |
 | [SendEmail](#sendemail)                       | Sends GMails with an auth file.                   | C# | 2015-05 |
 | [Notes](#notes)                               | Things that need to be said.                      | N/A | - |
+
+
+
+## Communicator
+
+A C# project to help with very simple communication. Not aimed at being super secure or robust, but
+targeting ease of use with simple obfuscation (base64 conversion) and simple encryption (AESGCM).
 
 
 

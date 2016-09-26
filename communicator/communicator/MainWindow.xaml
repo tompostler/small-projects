@@ -1,0 +1,32 @@
+﻿<Window x:Name="Communicator" x:Class="Unlimitedinf.OneOff.Communicator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Unlimitedinf.OneOff.Communicator"
+        mc:Ignorable="d"
+        Title="Communicator" Height="350" Width="525" Icon="unlimitedinf.ico">
+    <Grid>
+        <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="Menu_File_Open_Click"/>
+                <Separator/>
+                <MenuItem Header="Save As" Click="Menu_File_SaveAs_Click" />
+            </MenuItem>
+            <MenuItem Header="_Security">
+                <MenuItem Header="_Encrypt" Click="Menu_Security_Encrypt"/>
+                <MenuItem Header="_Decrypt" Click="Menu_Security_Decrypt"/>
+                <Separator/>
+                <MenuItem Header="_Info" Click="Menu_Security_Info_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Obscurity">
+                <MenuItem Header="_Obfuscate" Click="Menu_Obscurity_Obfuscate"/>
+                <MenuItem Header="_Deobfuscate" Click="Menu_Obscurity_Deobfuscate"/>
+                <Separator/>
+                <MenuItem Header="_Info" Click="Menu_Obscurity_Info_Click"/>
+            </MenuItem>
+        </Menu>
+        <TextBlock x:Name="statusText" Height="16" VerticalAlignment="Bottom" Background="#FFECECEC" MouseUp="statusText_MouseUp" />
+        <TextBox x:Name="mainText" Margin="10,25,10,21" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"/>
+    </Grid>
+</Window>
