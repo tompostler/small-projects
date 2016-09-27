@@ -27,6 +27,8 @@
             </MenuItem>
         </Menu>
         <TextBlock x:Name="statusText" Height="16" VerticalAlignment="Bottom" Background="#FFECECEC" MouseUp="statusText_MouseUp" />
-        <TextBox x:Name="mainText" Margin="10,25,10,21" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"/>
+        <TextBox x:Name="mainText" Margin="10,25,10,21" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                 />
     </Grid>
 </Window>

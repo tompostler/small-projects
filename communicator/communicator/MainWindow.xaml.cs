@@ -15,6 +15,7 @@
     {
         private DateTime StatusTextClearTime = DateTime.UtcNow;
         private bool NotClosed = true;
+        private bool HasBeenEncryptedOrObscured = false;
 
         public MainWindow()
         {
@@ -79,6 +80,16 @@
         /// <param name="e"></param>
         private void Menu_File_SaveAs_Click(object sender, RoutedEventArgs e)
         {
+            if (!this.HasBeenEncryptedOrObscured)
+            {
+                MessageBoxResult result = System.Windows.MessageBox.Show(this, "You want to save the file without first encrypting or obfuscating it?", "Are you sure...", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.No || result == MessageBoxResult.None)
+                {
+                    this.StatusTextUpdate("File not saved.");
+                    return;
+                }
+            }
+
             OpenFileDialog fileDialog = this.NzcmOpenFileDialog(false);
             switch (fileDialog.ShowDialog())
             {
@@ -90,7 +101,7 @@
                     break;
 
                 default:
-                    this.StatusTextUpdate("File not opened.");
+                    this.StatusTextUpdate("File not saved.");
                     break;
             }
         }
@@ -115,6 +126,7 @@
             }
 
             this.mainText.Text = Encryption.AESGCM.SimpleEncryptWithPassword(this.mainText.Text, password);
+            this.HasBeenEncryptedOrObscured = true;
         }
 
         /// <summary>
@@ -164,6 +176,7 @@
         private void Menu_Obscurity_Obfuscate(object sender, RoutedEventArgs e)
         {
             this.mainText.Text = Convert.ToBase64String(Encoding.ASCII.GetBytes(this.mainText.Text));
+            this.HasBeenEncryptedOrObscured = true;
         }
 
         /// <summary>
