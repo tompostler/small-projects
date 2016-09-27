@@ -5,7 +5,6 @@
     using System.Text;
     using System.Threading;
     using System.Windows;
-    using System.Windows.Forms;
     using System.Windows.Input;
 
     /// <summary>
@@ -41,7 +40,7 @@
         {
             while (this.NotClosed)
             {
-                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher.Invoke(() =>
                 {
                     if (DateTime.UtcNow > this.StatusTextClearTime && !string.IsNullOrEmpty(this.statusText.Text))
                         this.statusText.Text = string.Empty;
@@ -57,7 +56,7 @@
         /// <param name="e"></param>
         private void Menu_File_Open_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog fileDialog = this.NzcmOpenFileDialog();
+            System.Windows.Forms.OpenFileDialog fileDialog = this.NzcmOpenFileDialog();
             switch (fileDialog.ShowDialog())
             {
                 case System.Windows.Forms.DialogResult.OK:
@@ -82,7 +81,7 @@
         {
             if (!this.HasBeenEncryptedOrObscured)
             {
-                MessageBoxResult result = System.Windows.MessageBox.Show(this, "You want to save the file without first encrypting or obfuscating it?", "Are you sure...", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show(this, "You want to save the file without first encrypting or obfuscating it?", "Are you sure...", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.No || result == MessageBoxResult.None)
                 {
                     this.StatusTextUpdate("File not saved.");
@@ -90,7 +89,7 @@
                 }
             }
 
-            OpenFileDialog fileDialog = this.NzcmOpenFileDialog(false);
+            System.Windows.Forms.OpenFileDialog fileDialog = this.NzcmOpenFileDialog(false);
             switch (fileDialog.ShowDialog())
             {
                 case System.Windows.Forms.DialogResult.OK:
@@ -206,9 +205,14 @@
             this.StatusTextUpdate("The obscurity menu provides ways to (not very well) hide the text currently displayed.");
         }
 
-        private OpenFileDialog NzcmOpenFileDialog(bool checkFileExists = true)
+        /// <summary>
+        /// Open the type of file dialog we care about.
+        /// </summary>
+        /// <param name="checkFileExists"></param>
+        /// <returns></returns>
+        private System.Windows.Forms.OpenFileDialog NzcmOpenFileDialog(bool checkFileExists = true)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog fileDialog = new System.Windows.Forms.OpenFileDialog();
             fileDialog.CheckFileExists = checkFileExists;
             fileDialog.CheckPathExists = true;
             fileDialog.Filter = "Message file (*.nzcm)|*.nzcm";
@@ -216,9 +220,48 @@
             return fileDialog;
         }
 
+        /// <summary>
+        /// Clear the status text on click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void statusText_MouseUp(object sender, MouseButtonEventArgs e)
         {
             this.statusText.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Open a file dropped onto the screen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void window_Drop(object sender, System.Windows.DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                // Note that you can have more than one file.
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                // Assuming you have one file that you care about, pass it off to whatever
+                // handling code you have defined.
+                FileInfo file = new FileInfo(files[0]);
+                if (file.Extension != ".nzcm")
+                {
+                    this.StatusTextUpdate($"Invalid file extension: {file.Extension}");
+                    return;
+                }
+
+                string fileName = file.FullName;
+                string fileContents = File.ReadAllText(fileName);
+                this.mainText.Text = fileContents;
+                this.StatusTextUpdate($"Loaded {fileName}.");
+            }
+        }
+
+        private void mainText_PreviewDrag(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.All;
+            e.Handled = true;
         }
     }
 }

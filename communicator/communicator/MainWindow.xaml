@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Unlimitedinf.OneOff.Communicator"
         mc:Ignorable="d"
-        Title="Communicator" Height="350" Width="525" Icon="unlimitedinf.ico">
+        Title="Communicator" Height="350" Width="525" Icon="unlimitedinf.ico"
+        Drop="window_Drop" AllowDrop="True"
+        >
     <Grid>
         <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
             <MenuItem Header="_File">
@@ -26,9 +28,10 @@
                 <MenuItem Header="_Info" Click="Menu_Obscurity_Info_Click"/>
             </MenuItem>
         </Menu>
-        <TextBlock x:Name="statusText" Height="16" VerticalAlignment="Bottom" Background="#FFECECEC" MouseUp="statusText_MouseUp" />
-        <TextBox x:Name="mainText" Margin="10,25,10,21" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+        <TextBox x:Name="mainText" Margin="10,25,10,21" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 PreviewDragEnter="mainText_PreviewDrag" PreviewDragOver="mainText_PreviewDrag" PreviewDrop="window_Drop"
                  />
+        <TextBlock x:Name="statusText" Height="16" VerticalAlignment="Bottom" Background="#FFECECEC" MouseUp="statusText_MouseUp" />
     </Grid>
 </Window>
