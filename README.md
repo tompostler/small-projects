@@ -22,6 +22,7 @@ Sorted alphabetically.
 | [HashRename](#hashrename)                     | Recursively renames files to their hash.          | C# | 2015-04 |
 | [PerformanceTesting](#performancetesting)     | Perf test a function 10k times.                   | C# | 2015-08 |
 | [Progress](#progress)                         | Time-based progress percentage.                   | C# | 2015-08 |
+| [PS-Profile](#ps-profile)                     | My default PowerShell profile.                    | PS | 2017-12 |
 | [RandomPassword](#randompassword)             | Cryptographically secure alphanumeric passwords.  | C# | 2016-02 |
 | [ReplaceAll](#replaceall)                     | Replace all with `std::string` objects.           | C++ | 2013-12 |
 | [SendEmail](#sendemail)                       | Sends GMails with an auth file.                   | C# | 2015-05 |
@@ -95,6 +96,17 @@ Made to test the progress reading of ConEmu.
 Specifically, this tool takes a number of seconds to progress through and then prints the current
 percentage towards that goal on one line in the console. Shows every percent regardless of how
 little time is set to elapse.
+
+
+
+## PS-Profile
+
+My default PowerShell profile. Install by running `.\setup.ps1`. By default:
+
+- Simplifies the prompt once it reaches 100 characters or is in the home directory
+- Provides some basic git prompt integration regarding the current branch and status
+- `Write-ColorSamples`, a function to iterate through and print every different `Write-Host`'s
+  `-ForegroundColor` and `-BackgroundColor`
 
 
 
