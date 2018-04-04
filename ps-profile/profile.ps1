@@ -30,7 +30,8 @@ function isCurrentDirectoryGitRepository {
         $pathToTest = $checkIn.fullname + '/.git'
         if ((Test-Path $pathToTest) -eq $true) {
             return $true
-        } else {
+        }
+        else {
             $checkIn = $checkIn.parent
         }
     }
@@ -79,22 +80,25 @@ function gitStatus {
         elseif ($_ -match "deleted:") {
             if ($unstaged) {
                 $deleted += 1
-            } else {
-                $stdeleted +=1
+            }
+            else {
+                $stdeleted += 1
             }
         }
         elseif (($_ -match "modified:") -or ($_ -match "renamed:")) {
             if ($unstaged) {
                 $modified += 1
-            } else {
-                $stmodified +=1
+            }
+            else {
+                $stmodified += 1
             }
         }
         elseif ($_ -match "new file:") {
             if ($unstaged) {
                 $added += 1
-            } else {
-                $stadded +=1
+            }
+            else {
+                $stadded += 1
             }
         }
         elseif ($_ -match "Untracked files:") {
@@ -103,21 +107,21 @@ function gitStatus {
     }
     
     return @{
-        "untracked" = $untracked;
-        "stadded" = $stadded;
-        "stmodified" = $stmodified;
-        "stdeleted" = $stdeleted;
-        "stall" = $stadded + $stmodified + $stdeleted;
-        "added" = $added;
-        "modified" = $modified;
-        "deleted" = $deleted;
-        "all" = $added + $modified + $deleted;
-        "ahead" = $ahead;
-        "aheadCount" = $aheadCount;
-        "behind" = $behind;
+        "untracked"   = $untracked;
+        "stadded"     = $stadded;
+        "stmodified"  = $stmodified;
+        "stdeleted"   = $stdeleted;
+        "stall"       = $stadded + $stmodified + $stdeleted;
+        "added"       = $added;
+        "modified"    = $modified;
+        "deleted"     = $deleted;
+        "all"         = $added + $modified + $deleted;
+        "ahead"       = $ahead;
+        "aheadCount"  = $aheadCount;
+        "behind"      = $behind;
         "behindCount" = $behindCount;
-        "diverged" = $diverged;
-        "branch" = $branch
+        "diverged"    = $diverged;
+        "branch"      = $branch
     }
 }
 
@@ -155,13 +159,16 @@ function Print-GitStatusText {
     if ($status["ahead"]) {
         # We are ahead of origin
         Write-Host($currentBranch + [char]0x2191) -NoNewline -ForegroundColor Green
-    } elseif ($status["behind"]) {
+    }
+    elseif ($status["behind"]) {
         # We are behind of origin
         Write-Host($currentBranch + [char]0x2193) -NoNewline -ForegroundColor Yellow
-    } elseif ($status["diverged"]) {
+    }
+    elseif ($status["diverged"]) {
         # We are diverged of origin
         Write-Host($currentBranch + [char]0x2195) -NoNewline -ForegroundColor Red
-    } else {
+    }
+    else {
         # We are equal origin, or unknown
         Write-Host($currentBranch + '') -NoNewline -ForegroundColor Cyan
     }
@@ -265,4 +272,71 @@ function Write-ColorSamples {
             }
         }
     }
+}
+
+
+
+function Start-Sleep {
+    [CmdletBinding(DefaultParameterSetName = 'Seconds', HelpUri = 'https://go.microsoft.com/fwlink/?LinkID=113407')]
+    param(
+        [Parameter(ParameterSetName = 'Seconds', Mandatory = $true, Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
+        [ValidateRange(0, 2147483)]
+        [int]
+        ${Seconds},
+
+        [Parameter(ParameterSetName = 'Milliseconds', Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
+        [ValidateRange(0, 2147483647)]
+        [int]
+        ${Milliseconds},
+
+        [Parameter(ParameterSetName = 'Minutes', Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
+        [ValidateRange(0, 35791)]
+        [float]
+        ${Minutes}
+    )
+
+    begin {
+        try {
+            $outBuffer = $null
+            if ($PSBoundParameters.TryGetValue('OutBuffer', [ref]$outBuffer)) {
+                $PSBoundParameters['OutBuffer'] = 1
+            }
+            if ($PSBoundParameters['Minutes']) {
+                $PSBoundParameters.Remove('Minutes') | Out-Null
+                $PSBoundParameters['Milliseconds'] = [int]($Minutes * 60000)
+                Write-Host "Sleeping until $([DateTime]::Now.AddMinutes($Minutes))"
+            }
+            $wrappedCmd = $ExecutionContext.InvokeCommand.GetCommand('Microsoft.PowerShell.Utility\Start-Sleep', [System.Management.Automation.CommandTypes]::Cmdlet)
+            $scriptCmd = {& $wrappedCmd @PSBoundParameters }
+            $steppablePipeline = $scriptCmd.GetSteppablePipeline($myInvocation.CommandOrigin)
+            $steppablePipeline.Begin($PSCmdlet)
+        }
+        catch {
+            throw
+        }
+    }
+
+    process {
+        try {
+            $steppablePipeline.Process($_)
+        }
+        catch {
+            throw
+        }
+    }
+
+    end {
+        try {
+            $steppablePipeline.End()
+        }
+        catch {
+            throw
+        }
+    }
+    <#
+
+.ForwardHelpTargetName Microsoft.PowerShell.Utility\Start-Sleep
+.ForwardHelpCategory Cmdlet
+
+#>
 }
