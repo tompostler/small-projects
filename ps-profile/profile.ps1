@@ -4,12 +4,9 @@
 function Get-WittyResponse {
     <#
         .SYNOPSIS
-
         Gets a very non-witty response.
 
-
         .DESCRIPTION
-
         Will always return 'Hello world!', but this was needed as an example.
     #>
 
@@ -127,22 +124,18 @@ function gitStatus {
 
 
 
-function Print-GitStatusText {
+function Write-GitStatusText {
     <#
         .SYNOPSIS
-
         Gets some nice git status text when the current directory is within a git repository.
 
-
         .DESCRIPTION
-
         Basically copies the core functionality of posh-git in a way that makes it easier for me. Yay public licensing!
-
         Based off of https://markembling.info/2009/09/my-ideal-powershell-prompt-with-git-integration
     #>
 
     # If no git, do nothing
-    if (((Get-Command "git.exe" -ErrorAction SilentlyContinue) -eq $null) -or (-not (isCurrentDirectoryGitRepository))) {
+    if (($null -eq (Get-Command "git.exe" -ErrorAction SilentlyContinue)) -or (-not (isCurrentDirectoryGitRepository))) {
         return
     }
 
@@ -215,7 +208,7 @@ function prompt {
     }
 
     Write-Host "PS $curPath " -NoNewline
-    Print-GitStatusText
+    Write-GitStatusText
     return '> '
 }
 
@@ -231,29 +224,19 @@ function prompt {
 function Write-ColorSamples {
     <#
         .SYNOPSIS
-
         Prints a sample of the console colors available with Write-Host.
 
-
         .DESCRIPTION
-
         When given no information, walks through ConsoleColor and enumerates all possible color combinations.
-
-
-        .PARAMETER ForegroundColor
-
-        When provided, only enumerates through the one color.
-
-        .PARAMETER BackgroundColor
-
-        When provided, only enumerates through the one color.
     #>
 
     param
     (
+        # When provided, only enumerates through the one color.
         [ConsoleColor[]]
         $ForegroundColor,
 
+        # When provided, only enumerates through the one color.
         [ConsoleColor[]]
         $BackgroundColor
     )
@@ -272,6 +255,24 @@ function Write-ColorSamples {
             }
         }
     }
+}
+
+
+
+function Show-GitLog {
+    <#
+        .SYNOPSIS
+        Displays the git log with --pretty=oneline and a default of 20 commits.
+    #>
+
+    param
+    (
+        # Optional number of commit to display. Default is 20.
+        [int]
+        $CommitCount = 20
+    )
+
+    git log --pretty=oneline -$CommitCount
 }
 
 
